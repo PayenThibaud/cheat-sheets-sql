@@ -15,7 +15,6 @@ BETWEEN => entre valeur1 AND valeur2
 | IN (...)               | Le nombre existe dans une liste                              | col_name IN (2, 4, 6)         |
 | NOT IN (...)           | Le nombre n'existe pas dans une liste                        | col_name NOT IN (1, 3, 5)     |
 
-
 ## Vocabulaire   
   
 Query => requête
