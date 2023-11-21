@@ -14,6 +14,12 @@ from ... Join (nom du tableau2) On (tableau1.nom = tableau2.nom)
 il existe aussi left/right/full Join...  
 SELECT ... , (A + B) / 10 AS (nom de la nouvelle colonne) ou (a) AS (nom)  
 GROUP BY => réunis toute les lignes sur les différents nom  
+INSERT INTO (Nom De Table) (nom colonne, nom colonne, ...) values (valeur, valeur, ...)  
+UPDATE (nom de la table) SET (NomColonne) = (nouvelleValeur), ... where (nomColonne)=(LigneACorriger)  
+DELETE FROM (nomTableau) WHERE (condition)  
+CREATE TABLE (NomDeLaTable) (ID FLOAT, Nom TEXT, ...)  
+
+
   
 ## L'ordre  
   
@@ -57,6 +63,22 @@ GROUP BY => réunis toute les lignes sur les différents nom
 | NOT IN (...)           | La chaîne n'existe pas dans une liste                                 | col_name NOT IN ('D', 'E', 'F')|
 | IS NULL                | La valeur de la colonne est NULL                               | col_name IS NULL              |
 | IS NOT NULL            | La valeur de la colonne n'est pas NULL                         | col_name IS NOT NULL          |
+  
+## Type  
+  
+| Type de données | Description                                                                                                                                          |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| INTEGER, BOOLEAN | Les types de données entiers peuvent stocker des valeurs entières comme le nombre d'une quantité ou l'âge. Dans certaines implémentations, la valeur booléenne est simplement représentée comme une valeur entière de 0 ou 1. |
+| FLOAT, DOUBLE, REAL | Les types de données à virgule flottante peuvent stocker des données numériques plus précises telles que des mesures ou des valeurs fractionnaires. Différents types peuvent être utilisés en fonction de la précision à virgule flottante requise pour cette valeur. |
+| CHARACTER(num_chars), VARCHAR(num_chars), TEXT | Les types de données basés sur le texte peuvent stocker des chaînes de caractères et du texte dans toutes sortes de langues. La distinction entre les différents types dépend généralement de l'efficacité sous-jacente de la base de données lors de la manipulation de ces colonnes. Les types CHARACTER et VARCHAR (caractère variable) sont spécifiés avec le nombre maximum de caractères qu'ils peuvent stocker (les valeurs plus longues peuvent être tronquées), ce qui peut être plus efficace pour stocker et interroger de grandes tables. |
+| DATE, DATETIME | SQL peut également stocker des dates et des horodatages pour suivre les séries temporelles et les données d'événements. Ils peuvent être délicats à manipuler, en particulier lors de la manipulation de données à travers les fuseaux horaires. |
+| BLOB | Enfin, SQL peut stocker des données binaires sous forme de blobs directement dans la base de données. Ces valeurs sont souvent opaques pour la base de données, donc vous devez généralement les stocker avec les bonnes métadonnées pour les requêter ultérieurement. |
+| PRIMARY KEY      | Cela signifie que les valeurs de cette colonne sont uniques, et chaque valeur peut être utilisée pour identifier une seule ligne dans cette table.   |
+| AUTOINCREMENT    | Pour les valeurs entières, cela signifie que la valeur est automatiquement remplie et incrémentée à chaque insertion de ligne. Non pris en charge dans toutes les bases de données. |
+| UNIQUE           | Cela signifie que les valeurs de cette colonne doivent être uniques, vous ne pouvez donc pas insérer une autre ligne avec la même valeur dans cette colonne comme une autre ligne de la table. Diffère de la `PRIMARY KEY` en ce qu'elle n'a pas besoin d'être une clé pour une ligne dans la table. |
+| NOT NULL         | Cela signifie que la valeur insérée ne peut pas être `NULL`.                                                                                      |
+| CHECK (expression) | Cela vous permet d'exécuter une expression plus complexe pour tester si les valeurs insérées sont valides. Par exemple, vous pouvez vérifier que les valeurs sont positives, supérieures à une taille spécifique, ou commencent par un certain préfixe, etc. |
+| FOREIGN KEY      | Il s'agit d'une vérification de cohérence qui garantit que chaque valeur de cette colonne correspond à une autre valeur dans une colonne d'une autre table. Par exemple, s'il existe deux tables, l'une répertoriant tous les employés par ID et l'autre répertoriant leurs informations de paie, la `FOREIGN KEY` peut garantir que chaque ligne dans la table de paie correspond à un employé valide dans la liste principale des employés. |
 
 
 ## Vocabulaire   
