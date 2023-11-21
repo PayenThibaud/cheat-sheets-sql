@@ -2,35 +2,48 @@
   
 ## Outils de base  
   
-SELECT => Choisir une colonne  
-FROM => Choisir une table  
-    * => tout  
-WHERE => Condition :   
-BETWEEN => entre valeur1 AND valeur2  
-SELECT DISTINCT => affiche les données mais retirer les duplication.  
-WHERE ... ORDER BY ( ASC/DESC)=> trie dans l'ordre abc / cba  
-order ... LIMIT (nombre de donné à envoyé) OFFSET (à partir de ou)  
-from ... Join (nom du tableau2) On (tableau1.nom = tableau2.nom)  
-il existe aussi left/right/full Join...  
-SELECT ... , (A + B) / 10 AS (nom de la nouvelle colonne) ou (a) AS (nom)  
-GROUP BY => réunis toute les lignes sur les différents nom  
-INSERT INTO (Nom De Table) (nom colonne, nom colonne, ...) values (valeur, valeur, ...)  
-UPDATE (nom de la table) SET (NomColonne) = (nouvelleValeur), ... where (nomColonne)=(LigneACorriger)  
-DELETE FROM (nomTableau) WHERE (condition)  
-CREATE TABLE (NomDeLaTable) (ID FLOAT, Nom TEXT, ...)  
+### Vocabulaire  
 
+*= tout  
+ Querry = requête
+  
+### Nouvelle Colonne  
+```SELECT (A+B) AS (Nom de la nouvelle colonne)```  
+  
+### Nouvelle Ligne  
+```INSERT INTO (Nom de la table) (Nom Colonne, Nom Colonne, ...) values (valeur, valeur, ...)```  
+  
+### Corrigé une valeur
+```UPDATE (Nom de la table) SET (Nom colonne) = (Nouvelle Valeur) WHERE (Nom colonne) = (Ancienne Valeur)```  
 
+### Supprimé des Ligne  
+```DELETE FROM (Nom de la table) WHERE (condition) ```  
+  
+### Créer une Table  
+```CREATE TABLE (Nom de la table) (Nom colonne FLOAT, Nom colone TEXT, ...) ```  
+  
+### Ajouter une Colonne  
+```ALTER TABLE (Nom de la table) ADD column (Nom de la nouvelle colonne) FLOAT/TEXT/...  DEFAULT (valeur par default de la colonne) ```  
+  
+### Supprimer une Colonne  
+``ALTER TABLE (Nom de la table) DROP (Nom Colonne)  ``  
+  
+### Renommé une Table
+```ALTER TABLE (Nom de la table) RENAME TO (Nom Nouveau) ```  
+  
+### Supprimer une Table  
+```DROP TABLE IF EXISTS (Nom de la table)  ```  
   
 ## L'ordre  
   
-- FROM and JOIN...ON
-- WHERE
-- GROUP BY
-- HAVING
-- SELECT
-- DISTINCT
-- ORDER BY
-- LIMIT / OFFSET
+- FROM and JOIN...ON    (Indique la table et Rassemble 2 tableau à partir d'une colonne commune)
+- WHERE                 (condition)
+- GROUP BY              (Regroupe ou affiche tout les groupes identique)
+- HAVING                
+- SELECT                (Choisir une colonne)
+- DISTINCT              (Fait la même chose que GROUP BY)
+- ORDER BY              (ASC Trié par ordre croissant, DESC pour décroissant)
+- LIMIT / OFFSET        (Combien de donné, à partir de, Attention, tableau commence à 0)
   
 ## Fonction  
   
@@ -79,8 +92,3 @@ CREATE TABLE (NomDeLaTable) (ID FLOAT, Nom TEXT, ...)
 | NOT NULL         | Cela signifie que la valeur insérée ne peut pas être `NULL`.                                                                                      |
 | CHECK (expression) | Cela vous permet d'exécuter une expression plus complexe pour tester si les valeurs insérées sont valides. Par exemple, vous pouvez vérifier que les valeurs sont positives, supérieures à une taille spécifique, ou commencent par un certain préfixe, etc. |
 | FOREIGN KEY      | Il s'agit d'une vérification de cohérence qui garantit que chaque valeur de cette colonne correspond à une autre valeur dans une colonne d'une autre table. Par exemple, s'il existe deux tables, l'une répertoriant tous les employés par ID et l'autre répertoriant leurs informations de paie, la `FOREIGN KEY` peut garantir que chaque ligne dans la table de paie correspond à un employé valide dans la liste principale des employés. |
-
-
-## Vocabulaire   
-  
-Query => requête
