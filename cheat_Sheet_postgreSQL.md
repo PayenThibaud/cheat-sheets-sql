@@ -4,6 +4,9 @@
   
 ### Alias
 `alias psql='sudo -u postgres psql'`  
+  
+### Prendre un fichier window à Ubuntu  
+ `mv "/mnt/c/Users/Thibaud Payen/Downloads/person.sql" ~/sites`  
 
 ### commande basique  
 psql => ouvrir psql utilisateur postgres dans postgres  
